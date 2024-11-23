@@ -15,7 +15,7 @@ class PostController extends Controller
     }
     public function store(Request $request)
     {
-        // dd(auth()->user()->getRoleNames());  `
+        // dd(auth()->user()->getRoleNames());
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:255',
 
@@ -24,6 +24,7 @@ class PostController extends Controller
             return responce()->json($validator->error(), 422);
         }
         $user = auth()->user();
+        // dd($user);
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;

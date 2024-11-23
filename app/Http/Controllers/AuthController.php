@@ -42,8 +42,8 @@ class AuthController extends Controller
             'password' => hash::make($request->password),
         ]);
         //$user = User::find(1); // Replace with your user ID
-        ; // Assign the admin role
-        dd($user->assignRole($request->role));
+        $user->assignRole($request->role); // Assign the admin role
+        
         return response()->json(['messsage' => 'user registered successfully']);
     }
 
